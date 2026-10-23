@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1280" />
+  <title>Статус данных — TradeResults</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">Т</span>
+        <div>
+          <div class="brand-name">TradeResults</div>
+          <div class="brand-sub">Итоги торгов ETS и Каспий</div>
+        </div>
+      </div>
+      <nav class="nav">
+        <a class="nav-link" href="/">Сделки</a>
+        <a class="nav-link active" href="/status">Статус</a>
+      </nav>
+    </header>
+
+    <main class="main">
+      <section class="intro">
+        <h1>Статус данных</h1>
+        <p>Служебная страница: объём БД, свежесть по биржам и журнал запусков парсеров.</p>
+      </section>
+
+      <section class="status-actions">
+        <button type="button" class="btn btn-primary" id="btn-parse-inc">Запустить инкрементальный парсинг</button>
+        <button type="button" class="btn btn-ghost" id="btn-refresh">Обновить</button>
+        <span class="meta" id="parse-msg"></span>
+      </section>
+
+      <section class="status-cards" id="exchange-cards"></section>
+
+      <section class="table-wrap">
+        <h2 class="section-title">Последние запуски парсеров</h2>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Источник</th>
+              <th>Режим</th>
+              <th>Статус</th>
+              <th>Начало</th>
+              <th>Окончание</th>
+              <th>Добавлено</th>
+              <th>Просмотрено</th>
+              <th>Ошибка</th>
+            </tr>
+          </thead>
+          <tbody id="runs-body">
+            <tr><td colspan="9" class="empty">Загрузка…</td></tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </div>
+  <script src="/static/js/status.js"></script>
+</body>
+</html>

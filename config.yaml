@@ -1,0 +1,33 @@
+# Конфигурация учебного портала итогов торгов
+
+database_url: "sqlite:///data/trades.db"
+
+http:
+  user_agent: "TradeResultsStudentBot/1.0 (+educational; contact: local)"
+  timeout_sec: 45
+  request_delay_sec: 1.0
+  max_retries: 3
+
+ets:
+  base_url: "https://ets.kz"
+  catalog_url: "https://ets.kz/documents/trading-results/"
+  # При incremental — только последние N месяцев (от текущей даты)
+  incremental_months: 2
+
+caspian:
+  base_url: "https://ccx.kz"
+  results_url: "https://ccx.kz/trading-and-analytics/trading-results"
+  lang: "ru"
+  per_page: 100
+  # При incremental — сколько дней назад от сегодня
+  incremental_days: 14
+
+scheduler:
+  enabled: true
+  # Ежедневно в 06:30 (локальное время сервера)
+  cron: "30 6 * * *"
+  timezone: "Asia/Almaty"
+
+logging:
+  level: INFO
+  file: "logs/app.log"
